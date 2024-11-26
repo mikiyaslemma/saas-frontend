@@ -1,10 +1,14 @@
 version: '3.8'
+name: 'saas-frontend'
 services:
   saas-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: saas-frontend:latest
     container_name: saas-frontend
     ports:
       - "5173:5173"
     restart: unless-stopped
     volumes:
-      - ./src:/usr/src/app/src
+      - ./src:/app/src
